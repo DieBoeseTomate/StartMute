@@ -28,9 +28,8 @@ async def on_message(message):
                                                                              f".ping - zeigt den Ping vom Bot\n", color=discord.Color.blurple()))
     if args[0] == ".startmute":
         if len(args) > 2:
-            mentions = message.mentions
             try:
-                member = mentions[0]
+                member = message.mentions[0]
             except:
                 await message.channel.send("Bitte nutze: .startmute [@User] [Grund]")
             if member:
