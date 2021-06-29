@@ -17,6 +17,11 @@ async def on_ready():
 @client.event
 async def on_message(message):
     args = message.content.split(" ")
+    if message.content == ".src":
+        await message.channel.send("https://github.com/DieBoeseTomate/StartMute")
+    if message.content == ".ping":
+        await message.channel.send(
+            embed=discord.Embed(title="Ping", description=client.latency, color=discord.Color.blue()))
     if message.content == ".help":
         await message.channel.send(embed=discord.Embed(title=f"TomatiiiBot",
                                                                  description=f".startmute [@User] [Grund] - Startet eine Abstimmung, ob ein User gemuted werden soll\n"
@@ -59,10 +64,6 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="Fehler", description="Der angegebene Nutzer wurde nicht gefunden.", color=discord.Color.red()))
         else:
             await message.channel.send("Bitte nutze: .startmute [@User] [Grund]")
-
-    if message.content == ".ping":
-        await message.channel.send(
-            embed=discord.Embed(title="Ping", description=client.latency, color=discord.Color.blue()))
 
 
 client.run(BOT_TOKEN)
